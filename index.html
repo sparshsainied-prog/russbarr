@@ -46,7 +46,8 @@ a { color: inherit; }
 .box.b { background: var(--blue); }
 
 /* ---------- nav: the title stack as a menu ---------- */
-.stack { position: fixed; z-index: 40; right: 12px; bottom: 14px; border: 0; padding: 0; background: none; cursor: pointer; display: grid; justify-items: end; gap: 3px; filter: drop-shadow(2px 3px 0 rgba(20, 37, 74, .25)); }
+.stack { position: fixed; z-index: 40; right: 12px; bottom: 14px; border: 0; padding: 0; background: none; cursor: pointer; display: grid; justify-items: end; gap: 3px; filter: drop-shadow(2px 3px 0 rgba(20, 37, 74, .25)); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.stack.on { opacity: 1; pointer-events: auto; }
 .stack span { font-family: var(--head); font-weight: 800; font-size: 1.15rem; line-height: 1; color: #fff; padding: .28rem .5rem .2rem; letter-spacing: .02em; }
 .stack span:nth-child(1) { background: var(--red); }
 .stack span:nth-child(2) { background: var(--blue); margin-right: -4px; }
@@ -317,7 +318,7 @@ html:not(.js) .words, html.still .words { position: relative; left: auto; right:
     const roll = t < .55 ? Math.sin(t * 40) * .6 * (1 - t) : 0;
     els.bus.style.transform = `translate3d(${(x * k).toFixed(1)}px,${(roll * k).toFixed(1)}px,0) rotate(${(-brake).toFixed(2)}deg)`;
   }
-  function frame() { ticking = false; const p = still.matches ? 1 : clamp((scrollY - top) / run); if (Math.abs(p - lastP) < .0004) return; lastP = p; draw(p); }
+  function frame() { ticking = false; st.classList.toggle('on', scrollY > 60); const p = still.matches ? 1 : clamp((scrollY - top) / run); if (Math.abs(p - lastP) < .0004) return; lastP = p; draw(p); }
   function setMode() { document.documentElement.classList.toggle('still', still.matches); measure(); lastP = -1; frame(); }
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
   addEventListener('resize', () => { measure(); lastP = -1; frame(); });
