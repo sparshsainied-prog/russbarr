@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Russ Barr | Ten Pound Note</title>
+<meta name="description" content="Ten Pound Note by Russ Barr. London, 1995. One tenner. Twelve lives. Darkly comic fiction, signed copies at the Oxford Indie Book Fair, table N66.">
+<meta property="og:title" content="A homepage for Russ Barr, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for Russ Barr and Ten Pound Note, made by Sparsh Saini. Not his official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/russbarr/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23f3f1ec'/><rect x='3' y='5' width='26' height='10' fill='%23d4252c'/><rect x='3' y='17' width='26' height='10' fill='%231f4c9a'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/blue.webp">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Everything is lifted from the Ten Pound Note cover: two inks (pillar-box red and banknote blue)
+   printed on white, the heavy grotesque capitals knocked out of red and blue boxes (Barlow Condensed),
+   the Tower Bridge and Queen engraving, the Routemaster. */
+:root {
+  --paper: #f3f1ec;
+  --paper-2: #e9e5dd;
+  --red: #d4252c;
+  --red-deep: #a8161d;
+  --blue: #1f4c9a;
+  --navy: #14254a;
+  --ink: #1d2433;
+  --soft: #59606e;
+  --head: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(1rem, 5vw, 4rem);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.12rem; line-height: 1.55; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.strip { background: var(--navy); color: #fff; text-align: center; font-size: .95rem; padding: .45rem var(--gutter); position: relative; z-index: 30; }
+
+/* the cover's knocked-out title boxes */
+.box { display: inline-block; font-family: var(--head); font-weight: 800; text-transform: uppercase; line-height: .9; color: #fff; padding: .08em .16em .02em; background: var(--red); }
+.box.b { background: var(--blue); }
+
+/* ---------- nav: the title stack as a menu ---------- */
+.stack { position: fixed; z-index: 40; right: 12px; bottom: 14px; border: 0; padding: 0; background: none; cursor: pointer; display: grid; justify-items: end; gap: 3px; filter: drop-shadow(2px 3px 0 rgba(20, 37, 74, .25)); }
+.stack span { font-family: var(--head); font-weight: 800; font-size: 1.15rem; line-height: 1; color: #fff; padding: .28rem .5rem .2rem; letter-spacing: .02em; }
+.stack span:nth-child(1) { background: var(--red); }
+.stack span:nth-child(2) { background: var(--blue); margin-right: -4px; }
+.menu { position: fixed; inset: 0; z-index: 50; background: var(--paper); display: none; padding: 4.5rem var(--gutter) 2rem; overflow: auto; }
+.menu.open { display: block; }
+.menu ol { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; justify-items: start; }
+.menu a { text-decoration: none; font-size: clamp(2.6rem, 11vw, 4.4rem); }
+.menu li:nth-child(even) a { background: var(--blue); }
+.menu .x { position: absolute; top: 1rem; right: 1rem; background: none; border: 2px solid var(--ink); font-family: var(--head); font-weight: 800; font-size: 1.2rem; padding: .3rem .7rem; cursor: pointer; color: var(--ink); }
+
+/* ---------- hero: the cover printed in front of you ---------- */
+.hero { position: relative; height: 320vh; }
+.stage { --bw: min(calc(100vw - 2 * var(--gutter)), calc((100svh - 300px) * .6667)); position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.book { position: absolute; left: 50%; top: 14px; width: var(--bw); aspect-ratio: 800 / 1200; transform: translateX(-50%); overflow: hidden; background: url(img/paper.jpg) center / 100% 100% no-repeat; box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 10px 14px 0 var(--paper-2), 0 16px 30px rgba(20, 37, 74, .18); }
+.pl { position: absolute; display: block; max-width: none; will-change: transform; }
+.words { position: absolute; left: var(--gutter); right: var(--gutter); top: calc(14px + var(--bw) * 1.5 + 18px); }
+.words h1 { margin: 0 0 .45rem; font-family: var(--head); font-weight: 600; font-size: 1.05rem; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); }
+.words .line { font-size: clamp(1.18rem, 4.8vw, 1.42rem); line-height: 1.3; margin: 0 0 .9rem; font-weight: 500; }
+.words .line em { font-style: normal; color: var(--red); }
+.btns { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; align-items: center; }
+.btn { text-decoration: none; font-family: var(--head); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; line-height: 1; color: #fff; background: var(--red); padding: .55rem .9rem .45rem; box-shadow: 4px 4px 0 var(--blue); transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--blue); }
+.btn.b { background: var(--blue); box-shadow: 4px 4px 0 var(--red); }
+.link { font-weight: 500; text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+@media (min-width: 900px) {
+  .stage { --bw: min(calc(86svh * .6667), 38vw); }
+  .book { left: auto; right: 11vw; top: 50%; transform: translateY(-50%); }
+  .words { left: 9vw; right: calc(11vw + var(--bw) + 4vw); top: 50%; transform: translateY(-50%); }
+  .words h1 { font-size: 1.35rem; }
+  .words .line { font-size: clamp(1.9rem, 2.8vw, 2.9rem); line-height: 1.16; font-weight: 500; margin-bottom: 1.4rem; }
+  .words .sub { font-size: 1.3rem; }
+}
+.sub { font-family: var(--head); font-weight: 600; font-size: 1.15rem; letter-spacing: .04em; text-transform: uppercase; color: var(--soft); margin: 0 0 1rem; }
+
+/* ---------- sections ---------- */
+.sec { padding: clamp(3.5rem, 9vw, 7rem) var(--gutter); }
+.in { max-width: 1140px; margin: 0 auto; }
+h2 { font-size: clamp(2.6rem, 10vw, 5.4rem); margin: 0 0 1.6rem; }
+h2 .box + .box { margin-top: .06em; }
+h2 .box { display: table; }
+h3 { font-family: var(--head); font-weight: 800; font-size: 2rem; line-height: 1; text-transform: uppercase; margin: 0 0 .4rem; }
+p { margin: 0 0 1rem; max-width: 38rem; }
+.two { display: grid; gap: 2.4rem; }
+@media (min-width: 860px) { .two { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+
+.route { list-style: none; padding: 0; margin: 1.6rem 0 2rem; display: flex; flex-wrap: wrap; gap: .5rem .4rem; align-items: center; }
+.route li { font-family: var(--head); font-weight: 600; font-size: 1.35rem; text-transform: uppercase; border: 2px solid var(--ink); padding: .2rem .55rem .1rem; background: #fff; }
+.route li:nth-child(3n+1) { border-color: var(--red); color: var(--red-deep); }
+.route li:nth-child(3n+2) { border-color: var(--blue); color: var(--blue); }
+.route li.arrow { border: 0; background: none; padding: 0; color: var(--soft); }
+.says { display: grid; gap: 1.6rem; margin-top: 1rem; }
+.says blockquote { margin: 0; padding-left: 1rem; border-left: 4px solid var(--red); font-size: 1.2rem; }
+.says blockquote:nth-child(2) { border-color: var(--blue); }
+.says cite { display: block; font-style: normal; font-size: .95rem; color: var(--soft); margin-top: .3rem; }
+
+.n66 { background: var(--blue); color: #fff; }
+.n66 .table { font-family: var(--head); font-weight: 800; font-size: clamp(6rem, 30vw, 13rem); line-height: .82; display: inline-block; background: var(--red); padding: .05em .12em 0; margin: 0 0 1.2rem; }
+.n66 .when { font-family: var(--head); font-weight: 600; font-size: 1.6rem; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 .3rem; }
+.n66 .next { border-top: 2px solid rgba(255, 255, 255, .35); padding-top: 1.2rem; margin-top: 1.6rem; }
+.n66 .link { text-decoration-color: #fff; }
+
+.more li { list-style: none; }
+.more ol { padding: 0; margin: 0; display: grid; gap: 3rem; }
+.more li { display: grid; grid-template-columns: 120px 1fr; gap: 1.4rem; align-items: start; }
+.more img { width: 120px; box-shadow: 6px 6px 0 var(--paper-2); }
+.more .tag { font-family: var(--head); font-weight: 600; text-transform: uppercase; color: var(--soft); letter-spacing: .04em; margin: 0 0 .5rem; }
+@media (min-width: 860px) { .more ol { grid-template-columns: 1fr 1fr; gap: 4rem; } .more li { grid-template-columns: 160px 1fr; } .more img { width: 160px; } }
+
+.about img { width: min(320px, 70vw); box-shadow: 10px 10px 0 var(--red); }
+.facts { list-style: none; padding: 0; margin: 1.4rem 0 0; }
+.facts li { padding: .5rem 0; border-top: 2px solid var(--paper-2); }
+.facts b { font-family: var(--head); font-weight: 800; text-transform: uppercase; color: var(--blue); margin-right: .4rem; }
+
+.shelf { background: var(--navy); color: #fff; }
+.shelf .now { display: grid; gap: 2rem; margin-bottom: 2.4rem; }
+@media (min-width: 860px) { .shelf .now { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+.shelf .k { font-family: var(--head); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #9fb4dc; margin: 0 0 .3rem; }
+.shelf .t { font-family: var(--head); font-weight: 800; font-size: 2.2rem; line-height: 1; text-transform: uppercase; margin: 0 0 .3rem; }
+.shelf .stars { color: #ff8e8e; font-weight: 500; }
+.shelf .link { text-decoration-color: var(--red); }
+footer { background: var(--navy); color: #b9c3d8; text-align: center; padding: 1.4rem var(--gutter) 5.4rem; font-size: 1rem; border-top: 1px solid rgba(255, 255, 255, .15); }
+
+/* no JavaScript or reduced motion: the printed cover, no pin */
+html:not(.js) .hero, html.still .hero { height: auto; }
+html:not(.js) .stage, html.still .stage { position: relative; height: auto; padding-bottom: 1.5rem; }
+html:not(.js) .book, html.still .book { position: relative; left: auto; right: auto; top: auto; transform: none; margin: 14px auto 0; }
+html:not(.js) .words, html.still .words { position: relative; left: auto; right: auto; top: auto; transform: none; padding: 1.4rem var(--gutter) 0; }
+@media (min-width: 900px) {
+  html:not(.js) .stage, html.still .stage { display: flex; flex-direction: row-reverse; align-items: center; gap: 5vw; padding: 3rem 8vw 3rem 7vw; }
+  html:not(.js) .book, html.still .book { margin: 0; flex: none; }
+  html:not(.js) .words, html.still .words { padding: 0; }
+}
+</style>
+</head>
+<body>
+<div class="strip">A homepage idea made by Sparsh Saini for Russ Barr. Not their official site.</div>
+
+<button class="stack" aria-controls="menu" aria-expanded="false" aria-label="Open the menu"><span>Menu</span><span>Russ Barr</span></button>
+<div class="menu" id="menu" role="dialog" aria-label="Menu">
+  <button class="x">Close</button>
+  <ol>
+    <li><a class="box" href="#book">The tenner</a></li>
+    <li><a class="box" href="#n66">Table N66</a></li>
+    <li><a class="box" href="#more">More books</a></li>
+    <li><a class="box" href="#russ">Russ</a></li>
+    <li><a class="box" href="#shelf">My shelf</a></li>
+  </ol>
+</div>
+
+<main>
+<section class="hero" id="top" aria-label="The Ten Pound Note cover, printed as you scroll">
+  <div class="stage">
+    <div class="book" role="img" aria-label="The cover of Ten Pound Note by Russ Barr, printed in red and blue: the title in boxes, Tower Bridge, a winking Queen and a red Routemaster bus.">
+      <img class="pl" data-k="blue" src="img/blue.webp" alt="">
+      <img class="pl" data-k="red" src="img/red.webp" alt="">
+      <img class="pl" data-k="bus" src="img/bus.webp" alt="">
+    </div>
+    <div class="words">
+      <h1>Ten Pound Note, by Russ Barr</h1>
+      <p class="line">Fresh from the mint, a ten-pound note carries one peculiar flaw: <em>the Queen appears to be winking.</em></p>
+      <p class="sub">London, 1995. One tenner. Twelve lives.</p>
+      <div class="btns"><a class="btn" href="https://www.amazon.co.uk/dp/B0HFSG7V1C/">Buy the book</a><a class="link" href="#n66">Find me at table N66</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="book">
+  <div class="in two">
+    <div>
+      <h2><span class="box">Nobody keeps</span><span class="box b">it for long</span></h2>
+      <p>Over the course of its journey, the tenner passes through twelve lives: the lost, the lonely, the violent, the damaged and the desperate.</p>
+      <ol class="route" aria-label="Some of the people it passes through">
+        <li>A child</li><li class="arrow" aria-hidden="true">&gt;</li>
+        <li>A gangster with a secret</li><li class="arrow" aria-hidden="true">&gt;</li>
+        <li>A drug dealer</li><li class="arrow" aria-hidden="true">&gt;</li>
+        <li>A stripper</li><li class="arrow" aria-hidden="true">&gt;</li>
+        <li>A crooked policeman</li><li class="arrow" aria-hidden="true">&gt;</li>
+        <li>A man with nothing left to lose</li>
+      </ol>
+      <p>None of them keep the note for long. But each leaves a mark. What begins as a chain of chance encounters slowly reveals something darker, stranger and more human: a hidden connection between lives that should never have touched, and a path that may yet lead back to redemption.</p>
+      <div class="btns"><a class="btn" href="https://www.amazon.co.uk/dp/B0HFSG7V1C/">Amazon UK</a><a class="btn b" href="https://www.amazon.com/dp/B0HFSG7V1C/">Amazon US</a></div>
+    </div>
+    <div class="says">
+      <blockquote>"Such a simple concept, following a ten pound note as it passes from person to person, but Russ manages to use it to capture both the simplicity of being human and all the incredible complexities that come with it."<cite>Bella, Amazon UK</cite></blockquote>
+      <blockquote>"Nostalgic, funny, tense, with great characters and a very well written story."<cite>Harrison James, Goodreads</cite></blockquote>
+      <blockquote>"A fast paced story with a clever way of showing how closely connected we all are."<cite>Sppmcg, Amazon UK</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec n66" id="n66">
+  <div class="in two">
+    <div>
+      <p class="when">Oxford Indie Book Fair</p>
+      <span class="table">N66</span>
+      <p class="when">Sunday 22 November 2026, 11:00 to 16:30</p>
+      <p>Oxford Examination Schools, 75 to 81 High Street. Free entry.</p>
+    </div>
+    <div>
+      <p>Come and say hello, talk books and pick up a signed copy of Ten Pound Note or War Inc.</p>
+      <p>At the MK Indie Book Festival in September I ran a spin to win a signed book. It went so well it's coming back, improved.</p>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Oxford+Examination+Schools+OX1+4BG">Directions</a>
+      <div class="next">
+        <p class="when">Next: Literary Escape Festival</p>
+        <p>Saturday 15 May 2027, 10:30 to 14:30, Citygate Church, Bournemouth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec more" id="more">
+  <div class="in">
+    <h2><span class="box b">Also by me</span></h2>
+    <ol>
+      <li>
+        <img src="img/war-inc.jpg" alt="The cover of War Inc.: a soldier's shoulder in pink and orange camouflage, with palm trees and three soldiers on the horizon." width="313" height="500" loading="lazy">
+        <div>
+          <h3>War Inc.</h3>
+          <p class="tag">Political satire, my debut novel</p>
+          <p>When a violent uprising erupts on the island of Gutan, President Jim Cooper needs a plan. Enter Evan Fletcher, fixer for a shadowy corporate alliance called The Partnership. They can end the war faster and cheaper than any army. All they want in return is exposure: clicks, likes and billions of livestream views.</p>
+          <a class="link" href="https://www.amazon.co.uk/dp/B0G67G5GQC/">Get War Inc.</a>
+        </div>
+      </li>
+      <li>
+        <img src="img/crybully.jpg" alt="The cover of Crybully: a tall shadowy figure leaning over a small one, the title in red." width="400" height="600" loading="lazy">
+        <div>
+          <h3>Crybully</h3>
+          <p class="tag">A short story, 2024</p>
+          <p>Terry and Norman are from the same town, the same street, yet their lives are on very different paths. The school bully and his victim are locked in a lifelong struggle that will be the downfall of one of them. How far can someone be pushed before they fight back?</p>
+          <a class="link" href="https://www.amazon.co.uk/Crybully-someone-pushed-before-decide-ebook/dp/B0D5TM83Z3">Get Crybully</a>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec about" id="russ">
+  <div class="in two">
+    <img src="img/russ.jpg" alt="Russ Barr, smiling, in glasses and a dark jacket." width="560" height="700" loading="lazy">
+    <div>
+      <h2><span class="box">Hello, I'm Russ</span></h2>
+      <p>I write character-led fiction with heart and soul, sometimes dark, sometimes funny, but always trying to scratch beneath the surface of the human condition.</p>
+      <p>I'm drawn to flawed characters, broken systems and the absurdity that often sits just beneath the surface of serious things.</p>
+      <ul class="facts">
+        <li><b>Genres</b>political satire, contemporary fiction, speculative fiction</li>
+        <li><b>Themes</b>power, technology, institutions, human fallibility</li>
+        <li><b>Based</b>in the United Kingdom</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec shelf" id="shelf">
+  <div class="in">
+    <h2><span class="box">From my shelves</span></h2>
+    <div class="now">
+      <div><p class="k">Currently reading</p><p class="t">The Bone Clocks</p><p>by David Mitchell</p></div>
+      <div><p class="k">Latest review</p><p class="t">Yellowface</p><p>by Rebecca F. Kuang. <span class="stars">2 out of 5.</span> "It all ended up a bit too Scooby Doo."</p></div>
+    </div>
+    <p>I'm also a book reviewer: fifty books read so far in 2026, and I write up the highs and lows. Want the first chapter of Ten Pound Note? It comes with occasional book news and picks from my reading pile. No clutter and no constant emails.</p>
+    <div class="btns"><a class="btn" href="https://russbarr.co.uk/">Send me the first chapter</a><a class="link" href="https://www.instagram.com/russbarrwrites/">@russbarrwrites</a></div>
+  </div>
+</section>
+</main>
+
+<footer>A mockup made by Sparsh Saini for Russ Barr. Not affiliated, not live.</footer>
+
+<script>
+(() => {
+  const st = document.querySelector('.stack'), menu = document.getElementById('menu');
+  const setOpen = o => { menu.classList.toggle('open', o); st.setAttribute('aria-expanded', o); if (o) menu.querySelector('a').focus(); };
+  st.addEventListener('click', () => setOpen(true));
+  menu.addEventListener('click', e => { if (e.target.closest('.x') || e.target.closest('a')) setOpen(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+
+  // the cover's printing plates, in cover pixels (800 x 1200), separated by build/make-planes.py
+  const CW = 800, CH = 1200;
+  const BOX = {"blue": [0, 0, 800, 1200], "red": [0, 0, 800, 1200], "bus": [46, 624, 419, 391]};
+  const els = {};
+  document.querySelectorAll('.pl').forEach(el => {
+    const [x, y, w, h] = BOX[el.dataset.k];
+    Object.assign(el.style, { left: x / CW * 100 + '%', top: y / CH * 100 + '%', width: w / CW * 100 + '%', height: h / CH * 100 + '%' });
+    els[el.dataset.k] = el;
+  });
+  els.bus.style.transformOrigin = '30% 95%';
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const hero = document.querySelector('.hero'), book = document.querySelector('.book');
+  const clamp = v => v < 0 ? 0 : v > 1 ? 1 : v;
+  const ease = t => t * t * (3 - 2 * t);
+  const out = t => 1 - Math.pow(1 - t, 3);
+  let k = 1, top = 0, run = 1, ticking = false, lastP = -1;
+  function measure() { k = book.getBoundingClientRect().width / CW; top = hero.getBoundingClientRect().top + scrollY; run = Math.max(1, hero.offsetHeight - innerHeight); }
+  // a plate that slides into register and settles with a small press wobble
+  function plate(el, p, from, rot, t0, t1) {
+    const t = clamp((p - t0) / (t1 - t0)), e = out(t);
+    const wob = t > .7 && t < 1 ? Math.sin((t - .7) / .3 * Math.PI * 3) * (1 - t) * 18 : 0;
+    const x = from[0] * (1 - e) + wob * Math.sign(from[0]) * .4, y = from[1] * (1 - e) + wob * Math.sign(from[1]) * .25;
+    el.style.transform = `translate3d(${(x * k).toFixed(1)}px,${(y * k).toFixed(1)}px,0) rotate(${(rot * (1 - e)).toFixed(2)}deg)`;
+  }
+  function draw(p) {
+    // 1. the cover starts badly out of register, 2. blue then red slide into place and lock,
+    // 3. the Routemaster pulls in from the right and stops at its spot with a dip
+    plate(els.blue, p, [-74, -46], -2.2, .04, .4);
+    plate(els.red, p, [86, 38], 2.6, .12, .5);
+    const t = clamp((p - .52) / .26), e = out(t);
+    const x = 840 * (1 - e);
+    const brake = t > .55 ? Math.sin(clamp((t - .55) / .45) * Math.PI) * 2.2 : 0;
+    const roll = t < .55 ? Math.sin(t * 40) * .6 * (1 - t) : 0;
+    els.bus.style.transform = `translate3d(${(x * k).toFixed(1)}px,${(roll * k).toFixed(1)}px,0) rotate(${(-brake).toFixed(2)}deg)`;
+  }
+  function frame() { ticking = false; const p = still.matches ? 1 : clamp((scrollY - top) / run); if (Math.abs(p - lastP) < .0004) return; lastP = p; draw(p); }
+  function setMode() { document.documentElement.classList.toggle('still', still.matches); measure(); lastP = -1; frame(); }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+  addEventListener('resize', () => { measure(); lastP = -1; frame(); });
+  still.addEventListener('change', setMode);
+  setMode();
+})();
+</script>
+</body>
+</html>
