@@ -59,7 +59,7 @@ a { color: inherit; }
 
 /* ---------- hero: the cover printed in front of you ---------- */
 .hero { position: relative; height: 320vh; }
-.stage { --bw: min(calc(100vw - 2 * var(--gutter)), calc((100svh - 300px) * .6667)); position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.stage { --bw: min(calc(100vw - 2 * var(--gutter)), calc((100svh - 345px) * .6667)); position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .book { position: absolute; left: 50%; top: 14px; width: var(--bw); aspect-ratio: 800 / 1200; transform: translateX(-50%); overflow: hidden; background: url(img/paper.jpg) center / 100% 100% no-repeat; box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 10px 14px 0 var(--paper-2), 0 16px 30px rgba(20, 37, 74, .18); }
 .pl { position: absolute; display: block; max-width: none; will-change: transform; }
 .words { position: absolute; left: var(--gutter); right: var(--gutter); top: calc(14px + var(--bw) * 1.5 + 18px); }
@@ -309,9 +309,9 @@ html:not(.js) .words, html.still .words { position: relative; left: auto; right:
   function draw(p) {
     // 1. the cover starts badly out of register, 2. blue then red slide into place and lock,
     // 3. the Routemaster pulls in from the right and stops at its spot with a dip
-    plate(els.blue, p, [-74, -46], -2.2, .04, .4);
-    plate(els.red, p, [86, 38], 2.6, .12, .5);
-    const t = clamp((p - .52) / .26), e = out(t);
+    plate(els.blue, p, [-74, -46], -2.2, .03, .32);
+    plate(els.red, p, [86, 38], 2.6, .08, .38);
+    const t = clamp((p - .38) / .3), e = out(t);
     const x = 840 * (1 - e);
     const brake = t > .55 ? Math.sin(clamp((t - .55) / .45) * Math.PI) * 2.2 : 0;
     const roll = t < .55 ? Math.sin(t * 40) * .6 * (1 - t) : 0;
